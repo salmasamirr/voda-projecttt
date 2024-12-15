@@ -1,0 +1,74 @@
+
+<div *ngIf="searchedCity; else cityList">
+ <div class="back-button"><button class="btn btn-secondary" (click)="backToAllCities()" > Back to All Cities Weather</button></div> 
+   <!-- interpolation to Display searched city name -->
+   <h3>{{ searchedCity.city }} Weather</h3>
+  <table class="table table-striped table-bordered table-sm mx-auto" style="max-width: 80%;">
+    <thead>
+      <tr>
+        <th>
+          <span>Date</span>
+          <select
+            [(ngModel)]="selectedCityDate"
+            (change)="filterSearchedCityForecast()"
+            class="form-select"
+            style="margin-left: 10px; display: inline-block; width: auto;color: #2196f3;"
+          >
+            <option *ngFor="let date of availableCityDates" [value]="date">
+              {{ date }}
+            </option>
+          </select>
+        </th>
+        <th>
+          <div class="tempContainer">
+            <span>Temperature</span>
+            <label class="switch align-middle">
+              <input type="checkbox" [(ngModel)]="isCelsius" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </th>
+        <th>Humidity (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="filteredForecast">
+        <td>{{ filteredForecast.date }}</td>
+        <td>{{ getTemperatureFromForecast(filteredForecast) }}</td>
+        <td>{{ filteredForecast.humidity }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #cityList>
+  <h2>All Cities Weather</h2>
+  <table class="table table-striped table-bordered table-sm mx-auto" style="max-width: 60%;">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>
+          <div class="tempContainer">
+            <span>Temperature (Last Day)</span>
+            <label class="switch align-middle">
+              <input type="checkbox" [(ngModel)]="isCelsius" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </th>
+        <th>Humidity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let city of cities">
+        <td>{{ city.city }}</td>
+        <td>{{ getTemperature(city) }}</td>
+        <td>{{ city.forecast[city.forecast.length - 1].humidity }}%</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="selectCity(city)">Choose day!</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

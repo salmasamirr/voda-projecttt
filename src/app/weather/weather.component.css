@@ -1,0 +1,93 @@
+
+h2{
+    margin: 20px;
+}
+h3{
+    margin: 20px;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Increased width for better alignment */
+    height: 30px; /* Increased height for better display */
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    content: '';
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 30px; /* Fully rounded corners */
+    transition: 0.4s; /* Smooth transition for color change */
+  }
+  
+  /* The circle knob inside the slider */
+  .slider:before {
+    position: absolute;
+    content: '°C';
+    height: 24px; /* Adjusted for better fit */
+    width: 24px; /* Adjusted for better fit */
+    background-color: white;
+    border-radius: 50%; /* Circular knob */
+    top: 3px; /* Center vertically */
+    left: 3px; /* Center horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Adjusted font size */
+    color: #2196f3; /* Color for Celsius text */
+    transition: 0.4s; /* Smooth transition for knob movement */
+  }
+  
+  /* When the toggle is checked (Fahrenheit selected) */
+  input:checked + .slider {
+    background-color: #2196f3; /* Blue background for Fahrenheit */
+  }
+  
+  /* Focused state for the slider */
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+  
+  /* When the toggle is checked, move the knob to the right */
+  input:checked + .slider:before {
+    transform: translateX(30px); /* Move knob to the right */
+    content: '°F'; /* Change text to Fahrenheit */
+    color: #ff9800; /* Change color for Fahrenheit text */
+  }
+  
+  /* Rounded sliders (slider and knob) */
+  .slider.round {
+    border-radius: 30px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%; /* Ensure the knob stays circular */
+  }
+  
+  /* Container for temperature label and toggle switch */
+  .tempContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center the items */
+    width: 100%; /* Make sure the container takes the full width */
+  }
+/* Styling the back button */
+.back-button {
+   margin: 20px;
+  }
+  
+ 

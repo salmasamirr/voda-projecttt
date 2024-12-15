@@ -1,0 +1,20 @@
+/* Gradient background for navbar */
+.navbar {
+    background: linear-gradient(to right, #2196F3, #FFEB3B); /* Blue to Yellow */
+
+  }
+  
+  .navbar-brand {
+    color: #fff; /* Optional: Change navbar brand text color */
+  }
+  
+  .navbar a {
+    color: #fff; /* Optional: Change link text color */
+  }
+
+  /* Hover effect for the search button */
+.btn-outline-success:hover {
+    background-color: #2196F3; /* Blue background */
+    border-color: #2196F3; /* Blue border */
+    color: #fff; /* White text */
+  }

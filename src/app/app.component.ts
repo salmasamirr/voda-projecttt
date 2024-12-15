@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, ViewChild } from '@angular/core'; // `ViewChild` is used to access and manipulate DOM elements or child components directly in the component class.
+import { WeatherComponent } from './weather/weather.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend';
+  @ViewChild('weather') weatherComponent!: WeatherComponent;
+
+  searchCity(cityName: string): void {
+    this.weatherComponent.searchCity(cityName);
+  }
 }
